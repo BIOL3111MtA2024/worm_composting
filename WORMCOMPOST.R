@@ -1,9 +1,11 @@
 ---
-title: "FileImportFunctions"
+title: "Introducing Microorganisms to Closed Vermicast Systems at Different Developmental Stages."
 date: "`r format(Sys.Date())`"
 author:
 - Douglas Campbell^1^*
-- Carlie Barnhill^1^*
+- Georgia Pardy^1^*
+- Rajan Minocha-McKenney^1^*
+- Thuy Le^1^*
 output:
   bookdown::html_document2:
     code_folding: show
