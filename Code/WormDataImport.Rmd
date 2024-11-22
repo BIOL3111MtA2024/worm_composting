@@ -93,12 +93,12 @@ googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZ
 
 # Accessing sheets
 ```{r accessing_sheets}
-PhysChem <- read_sheet(googlesheet_url, sheet = "PhysChem")
+PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 
 ```
 
 ```{r colony_explore}
-PhysChem |>
+PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
@@ -106,7 +106,7 @@ PhysChem |>
   theme_bw()
 ```
 ```{r colony_explore}
-PhysChem |>
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
@@ -114,55 +114,55 @@ PhysChem |>
 ```
 This graph shows us the amount of times specefic colonies appeared on diffrent plate (we had a hard time anylizing 5 because of the fungus)
 ```{r Shape_explore}
-PhysChem |>
+PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Shape), stat="count") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw()
 ```
-This graph shows us
+This graph shows us the diffrent shapes of bacteria in each treatment
 
 ```{r Size_explore}
-PhysChem |>
+PhysChemL |>
     filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw()
 ```
-```{r}
-PhysChem |>
+```{r Size_explore}
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw()
 ```
-```{r}
-PhysChem |>
+```{r Plate_Colony_explore}
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Plate_Colony)) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw()
 ```
-This graph shows how many colonies were taken from each plate, and how many bacteria types were in each colony
+This graph shows how many colonies were taken from each plate, and how many bacteria types were in each colony (liquid)
 
-```{r}
-PhysChem |>
+```{r Size_Gram_explore}
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw()
 ```
-```{r}
-PhysChem |>
+```{r Gram_explore}
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw()
 ```
-```{r}
-PhysChem |>
+```{r Gram_ColonyType_explore}
+PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment), cols = vars(Colony_Type)) +
@@ -172,11 +172,11 @@ This graph shows us the different gram stains across colonies in the treatment t
 
 This next section is loking at the biodiversity of the worm pellets. (PhysChem2) We overall have lestt infprmation for shis, but puting the graphs side by side during a presentation could be helpful
 ```{r}
-PhysChem2 <- read_sheet(googlesheet_url, sheet = "PhysChem2")
+PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
-```{r}
-PhysChem2 |>
+```{r_ColonyType_explore}
+PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
