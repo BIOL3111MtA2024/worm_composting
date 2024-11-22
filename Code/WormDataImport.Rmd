@@ -175,7 +175,7 @@ This next section is loking at the biodiversity of the worm pellets. (PhysChem2)
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
-```{r_ColonyType_explore}
+```{r ColonyType_explore}
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
@@ -193,7 +193,7 @@ PhysChem_combined <- bind_rows(
 
 # Plot the data
 ggplot(PhysChem_combined) +
-  geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 2) +
+  geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 1) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
