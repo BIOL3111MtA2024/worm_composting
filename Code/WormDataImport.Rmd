@@ -183,4 +183,25 @@ PhysChemP |>
   theme_bw()
 ```
 
+This graph shows the comparyision between colony types across treatments. The 'Count' shows the frequency that type appears
+```{r liquid_pallet_comparasion}
+# Combine two dataframe
+PhysChem_combined <- bind_rows(
+  PhysChemP %>% mutate(Source = "PhysChemP"),
+  PhysChemL %>% mutate(Source = "PhysChemL")
+)
+
+# Plot the data
+ggplot(PhysChem_combined) +
+  geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 2) +
+  facet_grid(rows = vars(Treatment)) +
+  theme_bw() +
+  labs(
+    title = "Comparison of Colony_Type between PhysChemP and PhysChemL",
+    x = "Colony_Type",
+    y = "Count",
+    fill = "Figure"
+  )
+```
+
 # Bibliography
