@@ -97,7 +97,7 @@ PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 
 ```
 
-```{r colony_explore}
+```{r colony_explore_filter_treatment5}
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
@@ -125,7 +125,7 @@ This graph shows us the diffrent shapes of bacteria in each treatment
 
 ```{r Size_explore}
 PhysChemL |>
-    filter(Treatment != 5) |>
+  filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
@@ -176,11 +176,12 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
 ```{r ColonyType_explore}
+# add , fill = "#7bbea5" if want color
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() 
 ```
 
 This graph shows the comparyision between colony types across treatments. The 'Count' shows the frequency that type appears
@@ -192,10 +193,14 @@ PhysChem_combined <- bind_rows(
 )
 
 # Plot the data
+  ## scale_fill_brewer(palette = "______"): set color for the graph
+  ## position = "dodge" : put the columns side-by-side
+  ## binwidth = ____ : changing size of the columns
 ggplot(PhysChem_combined) +
   geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 1) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
+  scale_fill_brewer(palette = "Set2") +
   labs(
     title = "Comparison of Colony_Type between PhysChemP and PhysChemL",
     x = "Colony_Type",
