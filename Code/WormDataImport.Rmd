@@ -103,14 +103,20 @@ PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Type Across Treatments in Compost Liquid"
+  )
 ```
 ```{r colony_explore}
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Type Across Treatments in Compost Liquid"
+  )
 ```
 This graph shows us the amount of times specefic colonies appeared on diffrent plate (we had a hard time anylizing 5 because of the fungus)
 ```{r Shape_explore}
@@ -119,31 +125,40 @@ PhysChemL |>
   ggplot() +
   geom_histogram(aes(Shape), stat="count") +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw()+
+  labs(
+    title = "Colony Shapes Across Treatments in Compost Liquid"
+  )
 ```
-This graph shows us the diffrent shapes of bacteria in each treatment
+This graph shows us the different shapes of bacteria in each treatment
 
-```{r Size_explore}
+```{r Size_Shape_explore}
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Size Across Different Shapes and Treatments in Compost Liquid"
+  )
 ```
 ```{r Size_explore}
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Size Across Treatments in Compost Liquid"
+  )
 ```
 ```{r Plate_Colony_explore}
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Plate_Colony)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() 
 ```
 This graph shows how many colonies were taken from each plate, and how many bacteria types were in each colony (liquid)
 
@@ -152,21 +167,32 @@ PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Gram Across Treatments and Shapes in Compost Liquid "
+  )
 ```
 ```{r Gram_explore}
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw()
+  theme_bw() +
+  labs(
+    title = "Colony Gram Across Treatments of Compost Pallet "
+  )
 ```
 ```{r Gram_ColonyType_explore}
+## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram)) +
   facet_grid(rows = vars(Treatment), cols = vars(Colony_Type)) +
-  theme_bw()
+  scale_x_continuous(breaks = c(0, 1)) +
+  theme_bw()+
+  labs(
+    title = "Colony Gram Across Treatments and Colony Types of Compost Liquid"
+  )
 ```
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonoes have consistent gram types across treatments. If they don't, they were likely different colonies. 
 
@@ -181,15 +207,18 @@ PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type)) +
   facet_grid(rows = vars(Treatment)) +
-  theme_bw() 
+  theme_bw() +
+  labs(
+    title = "Colony Types Across Treatments of Compost Pallet "
+  )
 ```
 
 This graph shows the comparyision between colony types across treatments. The 'Count' shows the frequency that type appears
 ```{r liquid_pallet_comparasion}
 # Combine two dataframe
 PhysChem_combined <- bind_rows(
-  PhysChemP %>% mutate(Source = "PhysChemP"),
-  PhysChemL %>% mutate(Source = "PhysChemL")
+  PhysChemP %>% mutate(Source = "Pallet"),
+  PhysChemL %>% mutate(Source = "Liquid")
 )
 
 # Plot the data
@@ -202,7 +231,7 @@ ggplot(PhysChem_combined) +
   theme_bw() +
   scale_fill_brewer(palette = "Set2") +
   labs(
-    title = "Comparison of Colony_Type between PhysChemP and PhysChemL",
+    title = "Comparison of Colony Types between Compost Pallet and Liquid ",
     x = "Colony_Type",
     y = "Count",
     fill = "Figure"
