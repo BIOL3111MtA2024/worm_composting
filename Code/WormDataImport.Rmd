@@ -118,7 +118,7 @@ PhysChemL |>
     title = "Colony Type Across Treatments in Compost Liquid"
   )
 ```
-This graph shows us the amount of times specefic colonies appeared on diffrent plate (we had a hard time anylizing 5 because of the fungus)
+This graph shows us the amount of times specific colonies appeared on different plate (we had a hard time anylizing 5 because of the fungus)
 ```{r Shape_explore}
 PhysChemL |>
   filter(Treatment != 5) |>
@@ -209,7 +209,7 @@ PhysChemP |>
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
-    title = "Colony Types Across Treatments of Compost Pellet "
+    title = "Colony Types Across Treatments of Compost Pellet"
   )
 ```
 
