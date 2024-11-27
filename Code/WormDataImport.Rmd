@@ -94,20 +94,12 @@ googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZ
 # Accessing sheets
 ```{r accessing_sheets}
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
-
+PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
 
-```{r colony_explore_filter_treatment5}
-PhysChemL |>
-  filter(Treatment != 5) |>
-  ggplot() +
-  geom_histogram(aes(Colony_Type)) +
-  facet_grid(rows = vars(Treatment)) +
-  theme_bw() +
-  labs(
-    title = "Colony Type Across Treatments in Compost Liquid"
-  )
-```
+# Analysis the biodiversities of the diffrent colonies within the treatments
+## biodivesity of the vermicast liquid output
+
 ```{r colony_explore}
 PhysChemL |>
   ggplot() +
@@ -118,7 +110,81 @@ PhysChemL |>
     title = "Colony Type Across Treatments in Compost Liquid"
   )
 ```
-This graph shows us the amount of times specific colonies appeared on different plate (we had a hard time anylizing 5 because of the fungus)
+
+
+Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. 
+
+## biodivesity of the vermicast liquid output, removing the outlier
+```{r colony_explore_filter_treatment5}
+PhysChemL |>
+  filter(Treatment != 5) |>
+  ggplot() +
+  geom_histogram(aes(Colony_Type)) +
+  facet_grid(rows = vars(Treatment)) +
+  theme_bw() +
+  labs(
+    title = "Colony Type Across Treatments in Vermicast Liquid Output"
+  )
+```
+
+## Comparasion of Vermicast liquid output and Vermicast solids Output
+
+```{r ColonyType_explore}}
+# add , fill = "#7bbea5" if want color
+PhysChemP |>
+  ggplot() +
+  geom_histogram(aes(Colony_Type)) +
+  facet_grid(rows = vars(Treatment)) +
+  theme_bw() +
+  labs(
+    title = "Colony Types Across Treatments of Compost Pellet"
+  )
+```
+
+This graph shows the comparision between colony types across treatments. The 'Count' shows the frequency that type appears
+```{r liquid_pellet_comparasion}
+# Combine two dataframe
+PhysChem_combined <- bind_rows(
+  PhysChemP %>% mutate(Source = "Pellet"),
+  PhysChemL %>% mutate(Source = "Liquid")
+)
+
+# Plot the data
+  ## scale_fill_brewer(palette = "______"): set color for the graph
+  ## position = "dodge" : put the columns side-by-side
+  ## binwidth = ____ : changing size of the columns
+ggplot(PhysChem_combined) +
+  geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 1) +
+  facet_grid(rows = vars(Treatment)) +
+  theme_bw() +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Comparison of Colony Types between Compost Pellet and Liquid ",
+    x = "Colony_Type",
+    y = "Count",
+    fill = "Figure"
+  )
+```
+
+
+## Analysis of the diffrent shapes under the microscopes
+
+```{r Size_Shape_explore}
+
+PhysChemL |>
+  ggplot() +
+  geom_histogram(aes(Size_um)) +
+  facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
+  theme_bw() +
+  labs(
+    title = "Bacteria Size Across Different Shapes and Treatments in Compost Liquid"
+  )
+```
+
+
+## Analysis of the diffrent shapes under the microscopes, with removal of the outlier
+
+
 ```{r Shape_explore}
 PhysChemL |>
   filter(Treatment != 5) |>
@@ -134,13 +200,12 @@ This graph shows us the different shapes of bacteria in each treatment
 
 ```{r Size_Shape_explore}
 PhysChemL |>
-  filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw() +
   labs(
-    title = "Colony Size Across Different Shapes and Treatments in Compost Liquid"
+    title = "Bacteria Size Across Different Shapes and Treatments in Compost Liquid"
   )
 ```
 ```{r Size_explore}
@@ -197,9 +262,7 @@ PhysChemL |>
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonoes have consistent gram types across treatments. If they don't, they were likely different colonies. 
 
 This next section is loking at the biodiversity of the worm pellets. (PhysChem2) We overall have lestt infprmation for shis, but puting the graphs side by side during a presentation could be helpful
-```{r}
-PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
-```
+
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
 ```{r ColonyType_explore}
 # add , fill = "#7bbea5" if want color
@@ -213,29 +276,5 @@ PhysChemP |>
   )
 ```
 
-This graph shows the comparision between colony types across treatments. The 'Count' shows the frequency that type appears
-```{r liquid_pallet_comparasion}
-# Combine two dataframe
-PhysChem_combined <- bind_rows(
-  PhysChemP %>% mutate(Source = "Pellet"),
-  PhysChemL %>% mutate(Source = "Liquid")
-)
-
-# Plot the data
-  ## scale_fill_brewer(palette = "______"): set color for the graph
-  ## position = "dodge" : put the columns side-by-side
-  ## binwidth = ____ : changing size of the columns
-ggplot(PhysChem_combined) +
-  geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 1) +
-  facet_grid(rows = vars(Treatment)) +
-  theme_bw() +
-  scale_fill_brewer(palette = "Set2") +
-  labs(
-    title = "Comparison of Colony Types between Compost Pellet and Liquid ",
-    x = "Colony_Type",
-    y = "Count",
-    fill = "Figure"
-  )
-```
 
 # Bibliography
