@@ -134,13 +134,12 @@ This graph shows us the different shapes of bacteria in each treatment
 
 ```{r Size_Shape_explore}
 PhysChemL |>
-  filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Size_um)) +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw() +
   labs(
-    title = "Colony Size Across Different Shapes and Treatments in Compost Liquid"
+    title = "Bacteria Size Across Different Shapes and Treatments in Compost Liquid"
   )
 ```
 ```{r Size_explore}
@@ -217,7 +216,7 @@ This graph shows the comparyision between colony types across treatments. The 'C
 ```{r liquid_pallet_comparasion}
 # Combine two dataframe
 PhysChem_combined <- bind_rows(
-  PhysChemP %>% mutate(Source = "Pallet"),
+  PhysChemP %>% mutate(Source = "Pellet"),
   PhysChemL %>% mutate(Source = "Liquid")
 )
 
@@ -231,7 +230,7 @@ ggplot(PhysChem_combined) +
   theme_bw() +
   scale_fill_brewer(palette = "Set2") +
   labs(
-    title = "Comparison of Colony Types between Compost Pallet and Liquid ",
+    title = "Comparison of Colony Types between Compost Pellet and Liquid ",
     x = "Colony_Type",
     y = "Count",
     fill = "Figure"
