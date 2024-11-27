@@ -103,7 +103,7 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```{r colony_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Colony_Type)) +
+  geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
@@ -119,7 +119,7 @@ Treatment 5 was an outlier, as it had a fungus covering most of the colonies, ma
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
-  geom_histogram(aes(Colony_Type)) +
+  geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
@@ -130,10 +130,9 @@ PhysChemL |>
 ## Comparasion of Vermicast liquid output and Vermicast solids Output
 
 ```{r ColonyType_explore}}
-# add , fill = "#7bbea5" if want color
 PhysChemP |>
   ggplot() +
-  geom_histogram(aes(Colony_Type)) +
+  geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
@@ -173,7 +172,7 @@ ggplot(PhysChem_combined) +
 
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Size_um)) +
+  geom_histogram(aes(Size_um), fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw() +
   labs(
@@ -189,7 +188,7 @@ PhysChemL |>
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
-  geom_histogram(aes(Shape), stat="count") +
+  geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw()+
   labs(
@@ -201,7 +200,7 @@ This graph shows us the different shapes of bacteria in each treatment
 ```{r Size_Shape_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Size_um)) +
+  geom_histogram(aes(Size_um),fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw() +
   labs(
@@ -211,7 +210,7 @@ PhysChemL |>
 ```{r Size_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Size_um)) +
+  geom_histogram(aes(Size_um),fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
@@ -221,7 +220,7 @@ PhysChemL |>
 ```{r Plate_Colony_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Plate_Colony)) +
+  geom_histogram(aes(Plate_Colony),fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() 
 ```
@@ -230,7 +229,7 @@ This graph shows how many colonies were taken from each plate, and how many bact
 ```{r Size_Gram_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Gram)) +
+  geom_histogram(aes(Gram),fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
   theme_bw() +
   labs(
@@ -240,7 +239,7 @@ PhysChemL |>
 ```{r Gram_explore}
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Gram)) +
+  geom_histogram(aes(Gram),fill = "#7bbea5") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
@@ -251,7 +250,7 @@ PhysChemL |>
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
   ggplot() +
-  geom_histogram(aes(Gram)) +
+  geom_histogram(aes(Gram),fill = "#7bbea5", binwidth = 0.2) +
   facet_grid(rows = vars(Treatment), cols = vars(Colony_Type)) +
   scale_x_continuous(breaks = c(0, 1)) +
   theme_bw()+
@@ -268,7 +267,7 @@ Colony type per treatment is really the only thing we can do here, see data dict
 # add , fill = "#7bbea5" if want color
 PhysChemP |>
   ggplot() +
-  geom_histogram(aes(Colony_Type)) +
+  geom_histogram(aes(Colony_Type), fill = "#ef926e") +
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
