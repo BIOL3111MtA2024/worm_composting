@@ -3,7 +3,7 @@ title: "WormDataImport"
 date: "`r format(Sys.Date())`"
 author:
 - Georgia Pardy^1^*
-- Sylwia^1^*
+- Sylvia^1^*
 - Rajan^1^*
 - Douglas Campbell^1^*
 - Carlie Barnhill^1^*
@@ -118,7 +118,7 @@ PhysChemL |>
     title = "Colony Type Across Treatments in Compost Liquid"
   )
 ```
-This graph shows us the amount of times specefic colonies appeared on diffrent plate (we had a hard time anylizing 5 because of the fungus)
+This graph shows us the amount of times specific colonies appeared on different plate (we had a hard time anylizing 5 because of the fungus)
 ```{r Shape_explore}
 PhysChemL |>
   filter(Treatment != 5) |>
@@ -208,11 +208,11 @@ PhysChemP |>
   facet_grid(rows = vars(Treatment)) +
   theme_bw() +
   labs(
-    title = "Colony Types Across Treatments of Compost Pallet "
+    title = "Colony Types Across Treatments of Compost Pellet"
   )
 ```
 
-This graph shows the comparyision between colony types across treatments. The 'Count' shows the frequency that type appears
+This graph shows the comparision between colony types across treatments. The 'Count' shows the frequency that type appears
 ```{r liquid_pallet_comparasion}
 # Combine two dataframe
 PhysChem_combined <- bind_rows(
