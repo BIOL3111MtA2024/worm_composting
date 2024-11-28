@@ -195,7 +195,8 @@ PhysChemL |>
     title = "Colony Shapes Across Treatments in Compost Liquid"
   )
 ```
-This graph shows us the different shapes of bacteria in each treatment
+
+##Analysis of the diffrent shapes and sizes of bacteria present in each treatment
 
 ```{r Size_Shape_explore}
 PhysChemL |>
