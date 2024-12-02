@@ -101,11 +101,15 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 # Analysis the biodiversities of the different colonies within the treatments
 
 
-```{r sites, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r methods, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
+```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
+
+knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain.jpg"))
+```
 
 ## Biodivesity of the vermicast liquid output
 
