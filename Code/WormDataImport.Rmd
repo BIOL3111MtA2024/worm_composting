@@ -105,9 +105,9 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
 <<<<<<< HEAD
-```{r analysis, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r methods overall, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
 
-knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
+knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
 ```
 
 ```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
