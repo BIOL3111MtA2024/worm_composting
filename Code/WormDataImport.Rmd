@@ -98,8 +98,16 @@ PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
 
-# Analysis the biodiversities of the diffrent colonies within the treatments
-## biodivesity of the vermicast liquid output
+# Analysis the biodiversities of the different colonies within the treatments
+
+
+```{r sites, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
+
+knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
+```
+
+
+## Biodivesity of the vermicast liquid output
 
 ```{r colony_explore}
 PhysChemL |>
