@@ -4,7 +4,7 @@ date: "`r format(Sys.Date())`"
 author:
 - Georgia Pardy^1^*
 - Sylvia Le^1^*
-- Rajan^1^*
+- Rajan Minocha-McKenney^1^*
 - Douglas Campbell^1^*
 - Carlie Barnhill^1^*
 output:
@@ -36,6 +36,7 @@ p.caption {
 # Acknowledgements {-}
 Brackets minus after heading excludes heading from numbering.
 DAC was supported by the Canada Research Chairs.
+Lisa Barney offered support and resources throughout the project
 
 # Overview
 File import functions read files into R objects, commonly data frames. 
@@ -81,17 +82,17 @@ Repeatedly reading from GoogleDrive can provoke a throttle from Google.
 
 
 # Connect to google account
-Deauthorize google account to allow universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
+The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
 ```{r connect_google}
 #Instead of sending a token, googlesheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
 googlesheets4::gs4_deauth()
 
-#URL or ID of a GoogleSheet readable by anyone (with a link)
+#URL of the GoogleSheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
 ```
 
 
-# Accessing sheets
+## Accessing sheets
 ```{r accessing_sheets}
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
@@ -112,7 +113,7 @@ PhysChemL |>
 ```
 
 
-Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. 
+Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary fgures excluding it was created to better visualize the similarities and diffrences of bacterial colony biodivesrsity between treatments. 
 
 ## biodivesity of the vermicast liquid output, removing the outlier
 ```{r colony_explore_filter_treatment5}
@@ -140,7 +141,8 @@ PhysChemP |>
   )
 ```
 
-This graph shows the comparision between colony types across treatments. The 'Count' shows the frequency that type appears
+The solid vermicast is the main product of a functioning vermicast system. These were also tested for the biodiversity between colonies. It was found there was little biodiversity of bacterial colonies between treatments.
+
 ```{r liquid_pellet_comparasion}
 # Combine two dataframe
 PhysChem_combined <- bind_rows(
@@ -165,8 +167,15 @@ ggplot(PhysChem_combined) +
   )
 ```
 
+After the initial realization that there was less biodiversuty in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
+This suggests that the microbial biodiversity from vermicast systems is nt deriving from the gut of the worm.
 
-## Analysis of the diffrent shapes under the microscopes
+
+# Analysis of bacterial colonies using microscopy
+
+To futher determine diffrences between bacteria types, microscopy was used. This helped t determine wether colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
+
+## Analysis of bacterial shape
 
 ```{r Size_Shape_explore}
 
