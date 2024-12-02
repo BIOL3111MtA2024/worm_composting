@@ -106,6 +106,10 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
+```{r analysis, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
+
+knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
+```
 
 ## Biodivesity of the vermicast liquid output
 
