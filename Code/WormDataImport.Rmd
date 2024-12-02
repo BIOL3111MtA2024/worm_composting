@@ -104,7 +104,7 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
-<<<<<<< HEAD
+
 ```{r methods overall, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
