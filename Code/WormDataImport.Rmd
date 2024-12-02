@@ -3,8 +3,8 @@ title: "WormDataImport"
 date: "`r format(Sys.Date())`"
 author:
 - Georgia Pardy^1^*
-- Sylwia^1^*
-- Rajan^1^*
+- Sylwia Le^1^*
+- Rajan Minocha-McKenney^1^*
 - Douglas Campbell^1^*
 - Carlie Barnhill^1^*
 output:
