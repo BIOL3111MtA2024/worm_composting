@@ -330,6 +330,7 @@ PhysChemL |>
     title = "Colony Gram Across Treatments and Colony Types of Compost Liquid"
   )
 ```
+
 Figure 14. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
 
 Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies.
