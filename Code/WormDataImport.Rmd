@@ -85,7 +85,6 @@ The Google account that contained the data-sheets was de-authorized. This allowe
 
 
 
-
 # Import Data from a GoogleSheet
 Data in a Google Sheet is more generic than a project-specific .csv edited and saved locally and pushed to GitHub.
 The Google Sheet package interface can be tricky.
@@ -135,7 +134,7 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_U
 Figure 2. Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
 
 
-```{r analysis, fig.cap = "Pellet and Vermicast Output Culturing", out.height="800pt", out.width="100%", echo = FALSE}
+```{r analysis2, fig.cap = "Pellet and Vermicast Output Culturing", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples.png"))
 ```
@@ -363,7 +362,7 @@ Figure 15. Identification of gram staining (0 = negative, 1 =positive) for the d
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonies have consistent gram types across treatments. If they don't, they were likely different colonies. 
 
 
-```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r analysis1, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
