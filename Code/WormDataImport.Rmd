@@ -320,7 +320,7 @@ This graph shows us the different gram stains across colonies in the treatment t
 
 ```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
 
-knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups"))
+knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
 
 Figure 16. Examples of gram stains from treatment groups 1-5. Includes two from treatment group 4, demonstrating contrasting results between colonies of the same treatment group.
