@@ -51,8 +51,8 @@ knitr::opts_chunk$set(fig.path='Figs/')
 ## Load packages
 ```{r packages, include = FALSE}
 library(tidyverse) #core packages from Tidyverse
-library(googledrive) #access to GoogleDrive
-library(googlesheets4) #access to GoogleSheets
+library(googledrive) #access to Google Drive
+library(googlesheets4) #access to Google Sheets
 library(lubridate) #tidyverse handling dates & times
 ```
 
@@ -61,7 +61,7 @@ The cited items must be in the .bib file saved in the .Rproj folder; in this cas
 [@bryanGooglesheets4AccessGoogle2021;@mcgowanGoogledriveInterfaceGoogle2020; @wickhamTidyverseEasilyInstall2017]
 
 ## Source locally saved functions stored in a text file
-A text file of functions is a preliminary step towards a package, to re-use functions without repasting them.
+A text file of functions is a preliminary step towards a package, to re-use functions without re-pasting them.
 
 ## Set Project Variables  
 Try to set all user-defined variables near top of .Rmd, in one place, to avoid or limit editing of downstream code.
@@ -74,18 +74,18 @@ TargetFile <- "YYYY"
 
 
 # Import Data from a GoogleSheet
-Data in a GoogleSheet is more generic than a project-specific .csv edited and saved locally and pushed to GitHub.
-The GoogleSheet package interface can be tricky.
-Repeatedly reading from GoogleDrive can provoke a throttle from Google.
+Data in a Google Sheet is more generic than a project-specific .csv edited and saved locally and pushed to GitHub.
+The Google Sheet package interface can be tricky.
+Repeatedly reading from Google Drive can provoke a throttle from Google.
 
 
 # Connect to google account
-The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
+The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 ```{r connect_google}
-#Instead of sending a token, googlesheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
+#Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
 googlesheets4::gs4_deauth()
 
-#URL of the GoogleSheet so that it is available to anyone
+#URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
 ```
 
@@ -130,7 +130,7 @@ PhysChemL |>
 ```
 Figure 4. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
 
-Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary fgures excluding it was created to better visualize the similarities and differences of bacterial colony biodivesrsity between treatments. 
+Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary figures excluding it was created to better visualize the similarities and differences of bacterial colony biodiversity between treatments. 
 
 ## Biodivesity of the vermicast liquid output, removing the outlier
 ```{r colony_explore_filter_treatment5}
@@ -186,12 +186,12 @@ ggplot(PhysChem_combined) +
 Figure 3. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
 
 After the initial realization that there was less biodiversity in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
-This suggests that the microbial biodiversity from vermicast systems is nt deriving from the gut of the worm.
+This suggests that the microbial biodiversity from vermicast systems is not deriving from the gut of the worm.
 
 
 # Analysis of bacterial colonies using microscopy
 
-To further determine differences between bacteria types, microscopy was used. This helped to determine wheather colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
+To further determine differences between bacteria types, microscopy was used. This helped to determine whether colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
 
 ## Analysis of bacterial shape
 
@@ -296,7 +296,7 @@ Figure 6. Identification of gram staining (0 = negative, 1 =positive) for the di
 
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonies have consistent gram types across treatments. If they don't, they were likely different colonies. 
 
-This next section is looking at the biodiversity of the worm pellets. (PhysChem2) We overall have lestt infprmation for this, but putting the graphs side by side during a presentation could be helpful
+This next section is looking at the biodiversity of the worm pellets. (PhysChem2) We overall have less information for this, but putting the graphs side by side during a presentation could be helpful
 
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
 ```{r ColonyType_explore}
