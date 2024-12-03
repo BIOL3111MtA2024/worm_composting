@@ -145,6 +145,7 @@ PhysChemL |>
     title = "Colony Types From Vericast Liquid Across Treatment Groups 1-5"
   )
 ```
+
 Figure 4. Identification of colony types from vermicast liquid of treatment groups 1-5 from microscopy observations. Identifies treatment 5 as a potential outlier due to fungal contamination. 
 
 According to Figure 4, treatment 5 was identified as an outlier due to the presence of a fungus that covered most of the colonies, rendering them inaccessible. To enhance the visualization of the similarities and differences in colony biodiversity across the treatments, treatment 5 was excluded from the analysis.
@@ -185,7 +186,7 @@ The main product of a vermicast system is the pellet formed through the decompos
 ## Comparasion of Vermicast Liquid Output and Vermicast Pellet Output
 
 ```{r colony_liquid_pellet_comparasion}
-# Combine two dataframe
+# Combine two data frames
 PhysChem_combined <- bind_rows(
   PhysChemP %>% mutate(Source = "Pellet"),
   PhysChemL %>% mutate(Source = "Liquid")
@@ -313,7 +314,7 @@ PhysChemL |>
   )
 ```
 
-Figure 13.Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 13. Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
@@ -344,9 +345,11 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.pn
 
 Figure 15 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
+
 # **CONCLUSIONS**
 
-The hypothesis was supported, but the prediction was inaccurate, it did not matter when the supplemntary microbes were introduced. Future directions include performing more biochemical characterization and how we could apply this to home vermicast systems
+The hypothesis was supported, but the prediction was inaccurate, it did not matter when the supplementary microbes were introduced. Future directions include performing more biochemical characterization and how we could apply this to home vermicast systems
+
 
 # **REFERENCES**
 
