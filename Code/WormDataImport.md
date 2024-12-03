@@ -92,19 +92,12 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 
 # Analysis the biodiversities of the different colonies within the treatments
 
-
-``` r
-knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
-```
-
 <div class="figure">
-<img src="../Data/RawData/Method_Set_Up.png" alt="Worm Composting Method Setup." width="100%" height="800pt" />
-<p class="caption">(\#fig:methods set up)Worm Composting Method Setup.</p>
+<img src="../Data/RawData/Method_Set_Up.png" alt="Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. " width="100%" height="800pt" />
+<p class="caption">(\#fig:methods set up)Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. </p>
 </div>
 
-Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. 
-
-Experiment groups:
+## Experiment groups:
 1. Worms and apples
 2. Worms, apples and dirt
 3. Worms, apples and dirt one week before
