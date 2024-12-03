@@ -123,7 +123,7 @@ Figure 2. Schematic of vermicast culturing process for worm pellet liquid output
 
 ```{r analysis, fig.cap = "Pellet and Vermicast Output Culturing", out.height="800pt", out.width="100%", echo = FALSE}
 
-knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples"))
+knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples.png"))
 ```
 
 Figure 3. Example of cultured vermicast liquid for experimental groups 1-5, respectively. 
