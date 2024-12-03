@@ -210,6 +210,7 @@ ggplot(PhysChem_combined) +
 ```
 
 ![](Figs/colony_liquid_pellet_comparasion-1.png)<!-- -->
+
 Figure 7. Identification of colony types for liquid and pellet vermicast outputs of treatment groups 1-5 from microscopy observations.
 
 Following the initial observation that bacterial colonies exhibited reduced biodiversity in the pellets compared to the liquid outputs, it was determined that a comparative analysis of the results across treatments would be beneficial. Figure 7 illustrates that microbial biodiversity is more pronounced in the colonies derived from the liquid of each treatment than in the pellet vermicast. This finding suggests that the microbial diversity present in vermicast systems is not sourced from the worms' gut.
@@ -233,7 +234,7 @@ PhysChemL |>
 
 ![](Figs/plate_colony_explore-1.png)<!-- -->
 
-Figure 12. Number of colonies and bacteria types of each colonies for vermicast liquid output across treatment groups 1-5. Results were observed using microscopy.
+Figure 8. Number of colonies and bacteria types of each colonies for vermicast liquid output across treatment groups 1-5. Results were observed using microscopy.
 
 ## Analysis of Colony Shapes Using Microscopy
 
@@ -253,7 +254,7 @@ PhysChemL |>
 
 ![](Figs/shape_explore-1.png)<!-- -->
 
-Figure 8. Comparison of colony shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 9. Comparison of colony shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 ## Analysis of Bacteria Sizes Using Microscopy
 
@@ -271,7 +272,7 @@ PhysChemL |>
 
 ![](Figs/size_explore-1.png)<!-- -->
 
-Figure 9. Comparison of colony sizes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 10. Comparison of colony sizes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 ## Analysis of Releationship Between Bacteria Size and Shapes Between Treatment Groups
 
@@ -289,9 +290,9 @@ PhysChemL |>
 
 ![](Figs/size_shape_explore-1.png)<!-- -->
 
-Figure 10. Comparison of different size (um) and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 11. Comparison of different size (um) and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
-Figure 10 displays the different sizes and shapes of bacteria found in each treatment group. It indicates that while some colonies share similar shapes, they differ in size. This suggests that although certain colonies may look alike, they actually consist of different types of bacteria.
+Figure 11 displays the different sizes and shapes of bacteria found in each treatment group. It indicates that while some colonies share similar shapes, they differ in size. This suggests that although certain colonies may look alike, they actually consist of different types of bacteria.
 
 
 
@@ -313,7 +314,7 @@ PhysChemL |>
 
 ![](Figs/gram_explore-1.png)<!-- -->
 
-Figure 11.
+Figure 12. Comparison of gram stain (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
@@ -332,7 +333,7 @@ PhysChemL |>
 
 ![](Figs/shape_gram_explore-1.png)<!-- -->
 
-Figure 12.
+Figure 13.Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
@@ -352,9 +353,9 @@ PhysChemL |>
 ```
 
 ![](Figs/gram_colonytype_explore-1.png)<!-- -->
-Figure 13. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
+Figure 14. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
 
-Figure 13 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies.
+Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies.
 
 ## Example of Gram Stains from Treatment Groups 1-5
 
@@ -363,7 +364,7 @@ Figure 13 shows the gram positive or negative stains observed in the colonies of
 <p class="caption">(\#fig:gram_stain_examples) Examples of gram stains from treatment groups 1-5 at 40x magnification using microscopy.</p>
 </div>
 
-Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
+Figure 15 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
 # **CONCLUSIONS**
 
