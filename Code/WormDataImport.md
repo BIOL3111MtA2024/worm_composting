@@ -74,7 +74,7 @@ Data in a Google Sheet is more generic than a project-specific .csv edited and s
 ## Connect to Google Account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 
-``` r
+```r
 #Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required.
 
 # Deauthorize to access public sheets
@@ -87,7 +87,7 @@ googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZ
 ## Accessing Data From Google Sheets
 Below are the commands necessary to import the open source data from the vermicast project into R studio.
 
-``` r
+```r
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
@@ -127,7 +127,7 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ## Biodivesity of Vermicast Liquid Output
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
@@ -139,6 +139,7 @@ PhysChemL |>
 ```
 
 ![](Figs/colony_explore_liquid-1.png)<!-- -->
+
 Figure 4. Identification of colony types from vermicast liquid of treatment groups 1-5 from microscopy observations. Identifies treatment 5 as a potential outlier due to fungal contamination. 
 
 According to Figure 4, treatment 5 was identified as an outlier due to the presence of a fungus that covered most of the colonies, rendering them inaccessible. To enhance the visualization of the similarities and differences in colony biodiversity across the treatments, treatment 5 was excluded from the analysis.
@@ -146,7 +147,7 @@ According to Figure 4, treatment 5 was identified as an outlier due to the prese
 ## Biodivesity of The Vermicast Liquid Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
@@ -165,7 +166,7 @@ Figure 5. Identification of colony types from vermicast liquid outputs of treatm
 ## Biodivesity of The Vermicast Pellet Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
@@ -185,7 +186,7 @@ The main product of a vermicast system is the pellet formed through the decompos
 ## Comparasion of Vermicast Liquid Output and Vermicast Pellet Output
 
 
-``` r
+```r
 # Combine two data frames
 PhysChem_combined <- bind_rows(
   PhysChemP %>% mutate(Source = "Pellet"),
@@ -224,7 +225,7 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 Microscopy was used to identify differences between bacterial colonies. This method allowed us to verify whether colonies that shared a similar appearance were indeed the same type of bacteria by analyzing their shapes and conducting gram-staining tests.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Plate_Colony),fill = "#7bbea5") +
@@ -241,7 +242,7 @@ Figure 8. Number of colonies and bacteria types of each colonies for vermicast l
 Examining the different sizes and shapes of the colonies provides insights into the different forms of bacteria present after each treatment. This analysis increases our understanding of the biodiversity of bacteria in each colony.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
@@ -259,7 +260,7 @@ Figure 9. Comparison of colony shapes among treatment groups 1-5 from vermicast 
 ## Analysis of Bacteria Sizes Using Microscopy
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um),fill = "#7bbea5") +
@@ -277,7 +278,7 @@ Figure 10. Comparison of colony sizes among treatment groups 1-5 from vermicast 
 ## Analysis of Releationship Between Bacteria Size and Shapes Between Treatment Groups
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um), fill = "#7bbea5") +
@@ -301,7 +302,7 @@ Figure 11 displays the different sizes and shapes of bacteria found in each trea
 ## Analysis of Gram Stained Colonies Across Treatments
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -320,7 +321,7 @@ Figure 12. Comparison of gram stain (0 = negative, 1 =positive) among treatment 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -333,13 +334,13 @@ PhysChemL |>
 
 ![](Figs/shape_gram_explore-1.png)<!-- -->
 
-Figure 13.Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 13. Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
 
 
-``` r
+```r
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
   ggplot() +
@@ -353,6 +354,7 @@ PhysChemL |>
 ```
 
 ![](Figs/gram_colonytype_explore-1.png)<!-- -->
+
 Figure 14. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
 
 Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies.
