@@ -215,7 +215,7 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 
 
 
-# Biodivesity of Colonies
+# Charateristics of Colonies using Microscopy
 
 ## Analysis of Bacterial Colonies Using Microscopy
 
