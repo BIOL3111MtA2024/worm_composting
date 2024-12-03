@@ -121,6 +121,13 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_U
 Figure 2. Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
 
 
+```{r analysis, fig.cap = "Pellet and Vermicast Output Culturing", out.height="800pt", out.width="100%", echo = FALSE}
+
+knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples"))
+```
+
+Figure 3. Example of cultured vermicast liquid for experimental groups 1-5, respectively. 
+
 ## Biodivesity of the vermicast liquid output
 
 ```{r colony_explore}
@@ -133,7 +140,7 @@ PhysChemL |>
     title = "Colony Type Across Treatments in Compost Liquid"
   )
 ```
-Figure 3. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
+Figure 4. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
 
 Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary figures excluding it was created to better visualize the similarities and differences of bacterial colony biodiversity between treatments. 
 
@@ -150,7 +157,7 @@ PhysChemL |>
   )
 ```
 
-Figure 4. 
+Figure 5. 
 
 ## Comparasion of Vermicast liquid output and Vermicast solids Output
 
@@ -165,7 +172,7 @@ PhysChemP |>
   )
 ```
 
-Figure 5.
+Figure 6.
 
 The solid vermicast is the main product of a functioning vermicast system. These were also tested for the biodiversity between colonies. It was found there was little biodiversity of bacterial colonies between treatments.
 
@@ -192,7 +199,7 @@ ggplot(PhysChem_combined) +
     fill = "Figure"
   )
 ```
-Figure 6. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
+Figure 7. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
 
 After the initial realization that there was less biodiversity in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
 This suggests that the microbial biodiversity from vermicast systems is not deriving from the gut of the worm.
@@ -216,7 +223,7 @@ PhysChemL |>
   )
 ```
 
-Figure 7.
+Figure 8.
 
 ## Analysis of the diffrent shapes under the microscopes, with removal of the outlier
 
@@ -232,7 +239,7 @@ PhysChemL |>
   )
 ```
 
-Figure 8. 
+Figure 9. 
 
 ##Analysis of the diffrent shapes and sizes of bacteria present in each treatment
 
@@ -247,7 +254,7 @@ PhysChemL |>
   )
 ```
 
-Figure 9.
+Figure 10.
 
 ```{r Size_explore}
 PhysChemL |>
@@ -260,7 +267,7 @@ PhysChemL |>
   )
 ```
 
-Figure 10.
+Figure 11.
 
 ```{r Plate_Colony_explore}
 PhysChemL |>
