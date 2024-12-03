@@ -25,17 +25,18 @@ p.caption {
 }
 ```
 
-# Affiliations {-}
+# **AFFILIATIONS** {-}
 ^1^Mount Allison University, New Brunswick, Canada  
 * corresponding author
 
 
-# Acknowledgements {-}
+# **ACKNOWLEDGEMENTS** {-}
 DAC was supported by the Canada Research Chairs.
 Lisa Barney offered support and resources throughout the project
 
 
-# Introduction
+
+# **INTRODUCTION**
 
 ## Background   
 Vermicasting is a composting method that utilizes worms to break down organic waste into nutrient-rich soil. The microorganisms present in the worms' digestive systems, as well as those in the organic waste, facilitate this process. This practice enhances the end product's quality and increases its biodiversity, positively impacting soil health. 
@@ -52,7 +53,8 @@ Adding pre-composted material to vermicast systems at any stage of development w
 Vermicast systems with additional microorganisms introduced earlier will break down organic waste faster than vermicast systems that had them introduced later.
 
 
-# Materials & Methods of Data Importation  
+
+# **MATERIALS & METHODS** 
 
 ## Set Chunk Options
 Formatted display of content from .md file on GitHub site.
@@ -80,7 +82,10 @@ Data in a Google Sheet is more generic than a project-specific .csv edited and s
 ## Connect to Google Account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 ```{r connect_google}
-#Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
+#Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required.
+
+# Deauthorize to access public sheets
+gs4_deauth()
 
 #URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
@@ -109,21 +114,24 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 
 ## Vermicast Pellet and Liquid Output Analyzation and Characterization 
 
-```{r methods_overview, fig.cap = "Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.", out.height="400pt", out.width="100%", echo = FALSE}
+```{r methods_overview, fig.cap = " Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.", out.height="300pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
 ```
 
 ## Examples of Innoculated Petri Dishes From Vermicast Outputs
 
-```{r plate_examples, fig.cap = "Examples of innoculated vermicast liquid outputs for treatment groups 1-5 from left to right, respectively. Vermicast output was cultured on triptic-soy agar plates.", out.height="100pt", out.width="100%", echo = FALSE}
+```{r plate_examples, fig.cap = " Examples of innoculated vermicast liquid outputs for treatment groups 1-5 from left to right, respectively. Vermicast output was cultured on triptic-soy agar plates.", out.height="200pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples.png"))
 ```
 
-# Results
 
-# Biodivesity of Vermicast Liquid and Pellet Output
+
+# **RESULTS**
+
+
+# Biodivesity of Vermicast Liquid & Pellet Output
 
 ## Biodivesity of Vermicast Liquid Output
 
@@ -204,6 +212,7 @@ Figure 7. Identification of colony types for liquid and pellet vermicast outputs
 Following the initial observation that bacterial colonies exhibited reduced biodiversity in the pellets compared to the liquid outputs, it was determined that a comparative analysis of the results across treatments would be beneficial. Figure 7 illustrates that microbial biodiversity is more pronounced in the colonies derived from the liquid of each treatment than in the pellet vermicast. This finding suggests that the microbial diversity present in vermicast systems is not sourced from the worms' gut.
 
 
+
 # Biodivesity of Colonies
 
 ## Analysis of Bacterial Colonies Using Microscopy
@@ -271,6 +280,7 @@ Figure 10. Comparison of different size (um) and shapes among treatment groups 1
 Figure 10 displays the different sizes and shapes of bacteria found in each treatment group. It indicates that while some colonies share similar shapes, they differ in size. This suggests that although certain colonies may look alike, they actually consist of different types of bacteria.
 
 
+
 # Gram Staining
 
 ## Analysis of Gram Stained Colonies Across Treatments
@@ -325,7 +335,7 @@ Figure 13 shows the gram positive or negative stains observed in the colonies of
 
 ## Example of Gram Stains from Treatment Groups 1-5
 
-```{r gram_stain_examples, fig.cap = "Examples of gram stains from treatment groups 1-5 at 40x magnification using microscopy.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r gram_stain_examples, fig.cap = " Examples of gram stains from treatment groups 1-5 at 40x magnification using microscopy.", out.height="400pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
@@ -333,11 +343,11 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.pn
 Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
 
-# Conclusion
+# **CONCLUSIONS**
 
 
 
-# Bibliography
+# **REFERENCES**
 
 
 
