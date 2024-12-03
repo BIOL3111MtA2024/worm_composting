@@ -39,9 +39,9 @@ Lisa Barney offered support and resources throughout the project
 # **INTRODUCTION**
 
 ## Background   
-Vermicasting is a composting method that utilizes worms to break down organic waste into nutrient-rich soil. The microorganisms present in the worms' digestive systems, as well as those in the organic waste, facilitate this process. This practice enhances the end product's quality and increases its biodiversity, positively impacting soil health. 
+Vermicasting is a composting method that utilizes worms to break down organic waste into nutrient-rich soil (Soobhany et al., 2017;Chaoui, 2010). The microorganisms present in the worms' digestive systems, as well as those in the organic waste, facilitate this process. This practice enhances the end product's quality and increases its biodiversity, positively impacting soil health (Karine et al., 2024). 
 
-There are several strategies for introducing microbial biodiversity into vermicast systems. One method involves adding pre-composted materials or forest soil to the system. However, there is ongoing debate about the ideal timing for introducing this additional substrate. 
+There are several strategies for introducing microbial biodiversity into vermicast systems. One method involves adding pre-composted materials or forest soil to the system (Shaw, 2023). However, there is ongoing debate about the ideal timing for introducing this additional substrate (Shaw, 2023; Karine et al., 2024). 
 
 ## Research Question   
 Does introducing microorganisms to a vermicast system increase the microbial biodiversity of the final product? If so, what is the optimal time for their introduction? 
@@ -342,12 +342,28 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.pn
 
 Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
-
 # **CONCLUSIONS**
 
-
+The hypothesis was supported, but the prediction was inaccurate, it did not matter when the supplemntary microbes were introduced. Future directions include performing more biochemical characterization and how we could apply this to home vermicast systems
 
 # **REFERENCES**
+
+Bordessa, K. (2022) Attainable Sustainable: The Lost Art of Self-Reliant Living, National Geographic.
+
+Chaoui, H. (2010) Vermicasting (or vermicomposting). Ontario.ca.
+
+Karine, S., Elizaveta, G., Valeriia, K., Andrey, V., and Andrey, G. (2024) Comparative intestine 
+microbiome dynamics of the earthworm Eisenia fetida cultivated in sewage sludge and peat. Bioresource Technology Reports 27: 101948.
+
+Kelova, M.E., Ali, A.M., Eich-Greatorex, S., Dörsch, P., Kallenborn, R., and Jenssen, P.D. (2021) Small-scale on-site treatment of fecal matter: comparison of treatments for resource recovery and sanitization. Environ Sci Pollut Res 28: 63945–63964.
+
+Nature’s Footprint Billions of Microorganisms in the Worm Bin. Nature’s Footprint.
+
+Piccirillo, P. (2016) The Worm Farming Revolution, Outskirts Press.
+
+Shaw, J. (2023) Vermicomposting at Home. Uncle Jim’s Worm Farm.
+
+Soobhany, N., Mohee, R., and Garg, V.K. (2017) Inactivation of bacterial pathogenic load in compost against vermicompost of organic solid waste aiming to achieve sanitation goals: A review. Waste Management 64: 51–62.
 
 
 
