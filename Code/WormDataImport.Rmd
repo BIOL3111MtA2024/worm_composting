@@ -28,7 +28,7 @@ p.caption {
 
 # Affiliations {-}
 ^1^Mount Allison University, New Brunswick, Canada  
-
+* Corresponding author
 
 # Acknowledgements {-}
 Brackets minus after heading excludes heading from numbering.
