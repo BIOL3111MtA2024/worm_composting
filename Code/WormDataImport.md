@@ -39,9 +39,9 @@ Lisa Barney offered support and resources throughout the project
 # **INTRODUCTION**
 
 ## Background   
-Vermicasting is a composting method that utilizes worms to break down organic waste into nutrient-rich soil. The microorganisms present in the worms' digestive systems, as well as those in the organic waste, facilitate this process. This practice enhances the end product's quality and increases its biodiversity, positively impacting soil health. 
+Vermicasting is a composting method that utilizes worms to break down organic waste into nutrient-rich soil (Soobhany et al., 2017;Chaoui, 2010). The microorganisms present in the worms' digestive systems, as well as those in the organic waste, facilitate this process. This practice enhances the end product's quality and increases its biodiversity, positively impacting soil health (Karine et al., 2024). 
 
-There are several strategies for introducing microbial biodiversity into vermicast systems. One method involves adding pre-composted materials or forest soil to the system. However, there is ongoing debate about the ideal timing for introducing this additional substrate. 
+There are several strategies for introducing microbial biodiversity into vermicast systems. One method involves adding pre-composted materials or forest soil to the system (Shaw, 2023). However, there is ongoing debate about the ideal timing for introducing this additional substrate (Shaw, 2023; Karine et al., 2024). 
 
 ## Research Question   
 Does introducing microorganisms to a vermicast system increase the microbial biodiversity of the final product? If so, what is the optimal time for their introduction? 
@@ -74,7 +74,7 @@ Data in a Google Sheet is more generic than a project-specific .csv edited and s
 ## Connect to Google Account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 
-``` r
+```r
 #Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required.
 
 # Deauthorize to access public sheets
@@ -87,7 +87,7 @@ googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZ
 ## Accessing Data From Google Sheets
 Below are the commands necessary to import the open source data from the vermicast project into R studio.
 
-``` r
+```r
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
@@ -127,7 +127,7 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ## Biodivesity of Vermicast Liquid Output
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
@@ -146,7 +146,7 @@ According to Figure 4, treatment 5 was identified as an outlier due to the prese
 ## Biodivesity of The Vermicast Liquid Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
@@ -165,7 +165,7 @@ Figure 5. Identification of colony types from vermicast liquid outputs of treatm
 ## Biodivesity of The Vermicast Pellet Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
@@ -185,7 +185,7 @@ The main product of a vermicast system is the pellet formed through the decompos
 ## Comparasion of Vermicast Liquid Output and Vermicast Pellet Output
 
 
-``` r
+```r
 # Combine two dataframe
 PhysChem_combined <- bind_rows(
   PhysChemP %>% mutate(Source = "Pellet"),
@@ -223,7 +223,7 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 Microscopy was used to identify differences between bacterial colonies. This method allowed us to verify whether colonies that shared a similar appearance were indeed the same type of bacteria by analyzing their shapes and conducting gram-staining tests.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Plate_Colony),fill = "#7bbea5") +
@@ -240,7 +240,7 @@ Figure 12. Number of colonies and bacteria types of each colonies for vermicast 
 Examining the different sizes and shapes of the colonies provides insights into the different forms of bacteria present after each treatment. This analysis increases our understanding of the biodiversity of bacteria in each colony.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
@@ -258,7 +258,7 @@ Figure 8. Comparison of colony shapes among treatment groups 1-5 from vermicast 
 ## Analysis of Bacteria Sizes Using Microscopy
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um),fill = "#7bbea5") +
@@ -276,7 +276,7 @@ Figure 9. Comparison of colony sizes among treatment groups 1-5 from vermicast l
 ## Analysis of Releationship Between Bacteria Size and Shapes Between Treatment Groups
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um), fill = "#7bbea5") +
@@ -300,7 +300,7 @@ Figure 10 displays the different sizes and shapes of bacteria found in each trea
 ## Analysis of Gram Stained Colonies Across Treatments
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -319,7 +319,7 @@ Figure 11.
 ## Analysis of Gram Stained Colonies and Bacteria Shape
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -338,7 +338,7 @@ Figure 12.
 ## Analysis of Gram Stained and Colony Type
 
 
-``` r
+```r
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
   ggplot() +
@@ -365,12 +365,28 @@ Figure 13 shows the gram positive or negative stains observed in the colonies of
 
 Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
-
 # **CONCLUSIONS**
 
-
+The hypothesis was supported, but the prediction was inaccurate, it did not matter when the supplemntary microbes were introduced. Future directions include performing more biochemical characterization and how we could apply this to home vermicast systems
 
 # **REFERENCES**
+
+Bordessa, K. (2022) Attainable Sustainable: The Lost Art of Self-Reliant Living, National Geographic.
+
+Chaoui, H. (2010) Vermicasting (or vermicomposting). Ontario.ca.
+
+Karine, S., Elizaveta, G., Valeriia, K., Andrey, V., and Andrey, G. (2024) Comparative intestine 
+microbiome dynamics of the earthworm Eisenia fetida cultivated in sewage sludge and peat. Bioresource Technology Reports 27: 101948.
+
+Kelova, M.E., Ali, A.M., Eich-Greatorex, S., Dörsch, P., Kallenborn, R., and Jenssen, P.D. (2021) Small-scale on-site treatment of fecal matter: comparison of treatments for resource recovery and sanitization. Environ Sci Pollut Res 28: 63945–63964.
+
+Nature’s Footprint Billions of Microorganisms in the Worm Bin. Nature’s Footprint.
+
+Piccirillo, P. (2016) The Worm Farming Revolution, Outskirts Press.
+
+Shaw, J. (2023) Vermicomposting at Home. Uncle Jim’s Worm Farm.
+
+Soobhany, N., Mohee, R., and Garg, V.K. (2017) Inactivation of bacterial pathogenic load in compost against vermicompost of organic solid waste aiming to achieve sanitation goals: A review. Waste Management 64: 51–62.
 
 
 

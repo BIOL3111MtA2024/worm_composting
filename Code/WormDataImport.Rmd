@@ -296,7 +296,7 @@ PhysChemL |>
   )
 ```
 
-Figure 11.
+Figure 11. Comparison of gram stain (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
@@ -312,7 +312,7 @@ PhysChemL |>
   )
 ```
 
-Figure 12.
+Figure 12.Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
