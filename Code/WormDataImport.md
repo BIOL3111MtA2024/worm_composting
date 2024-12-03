@@ -74,7 +74,7 @@ Data in a Google Sheet is more generic than a project-specific .csv edited and s
 ## Connect to Google Account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 
-``` r
+```r
 #Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required.
 
 # Deauthorize to access public sheets
@@ -87,10 +87,49 @@ googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZ
 ## Accessing Data From Google Sheets
 Below are the commands necessary to import the open source data from the vermicast project into R studio.
 
-``` r
+```r
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
+## Data Dictionary 
+
+```r
+DataDictionary <- read_sheet(googlesheet_url, sheet = "Data_Dictionary")
+kable(DataDictionary)
+```
+
+
+
+| Variable_Name|Variable          |Unit                                                  |Notes                                                                                             |
+|-------------:|:-----------------|:-----------------------------------------------------|:-------------------------------------------------------------------------------------------------|
+|             1|Treatment_Group_1 |NA                                                    |Consisted of worms and apples added in week 1                                                     |
+|             2|Treatment_Group_2 |NA                                                    |Consisted of worms, apples, and dirt addedin week 1.                                              |
+|             3|Treatment_Group_3 |NA                                                    |Consisted of worms and apples added in week 1. Dirt was added in week 0.                          |
+|             4|Treatment_Group_4 |NA                                                    |Consisted of worms and apples added in week 1. Dirt was added in week 2.                          |
+|             5|Treatment_Group_5 |NA                                                    |Consisted of dirt and apples added in week 1.                                                     |
+|             1|Colony_Type_1     |NA                                                    |Bright yellow, opaque, slightly elevated, rounded edges                                           |
+|             2|Colony_Type_2     |NA                                                    |Long spindly protusions, semi opaque, flat but will overlap on each other, hairlike               |
+|             3|Colony_Type_3     |NA                                                    |Brownish water, slightly elevated, smooth edges and texture                                       |
+|             4|Colony_Type_4     |NA                                                    |Off white colour, smooth texture and edges, circullar, slightly elevated                          |
+|             5|Colony_Type_5     |NA                                                    |Off white colour, smooth textutre, rough edged, slightly elevated                                 |
+|             6|Colony_Type_6     |NA                                                    |Orange hue, smooth texture, smooth edges, slightly elevated                                       |
+|             7|Colony_Type_7     |NA                                                    |Fuzzy apperance, white-ish, slightly elevated                                                     |
+|             8|Colony_Type_8     |NA                                                    |Speckeld colonies, bubble like, translucent but specks were more opaque, rough, slightly elevated |
+|             9|Colony_Type_9     |NA                                                    |Pink hue, smooth texture, smooth texture, smooth edges, elevated, opaque                          |
+|            10|Colony_Type_10    |NA                                                    |White-yellowish, butter surface, slightly elevated, entire margin, circular, dull, opaque         |
+|            11|Colony_Type_11    |NA                                                    |Yellow, glistering surface, slightly elevated, circular, translucent                              |
+|            12|Colony_Type_12    |NA                                                    |White, opaque, thin layer cover the area of plate                                                 |
+|            13|Colony_Type_13    |NA                                                    |White at the middle, on way out more translucent, circular, slightly elevated                     |
+|            14|Colony_Type_14    |NA                                                    |Black fungus                                                                                      |
+|            15|Colony_Type_15    |NA                                                    |White fungus                                                                                      |
+|            16|Colony_Type_16    |NA                                                    |Yellow-darkish, circular, rlight eflected, half transluted, slightly elevated                     |
+|            17|Colony_Type_17    |NA                                                    |Dark pink, smooth surface, circular, opaque                                                       |
+|             1|Gram_Positive     |NA                                                    |Positive gram-stained colonies displayed a purple staining                                        |
+|             0|Gram_Negative     |NA                                                    |Negative gram-stained colonies displayed a pink staining                                          |
+|            NA|Size_um           |um                                                    |NA                                                                                                |
+|             1|Motile            |NA                                                    |Microbes that were motile                                                                         |
+|            NA|Plate_Code        |Treatment_InoculationWeek_ObserveWeek_ColonyTypeCount |NA                                                                                                |
+
 
 ## Vermicast Setup
 
@@ -127,7 +166,7 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ## Biodivesity of Vermicast Liquid Output
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
@@ -147,7 +186,7 @@ According to Figure 4, treatment 5 was identified as an outlier due to the prese
 ## Biodivesity of The Vermicast Liquid Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
@@ -166,7 +205,7 @@ Figure 5. Identification of colony types from vermicast liquid outputs of treatm
 ## Biodivesity of The Vermicast Pellet Output of Treatment Groups 1-4
 
 
-``` r
+```r
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
@@ -186,7 +225,7 @@ The main product of a vermicast system is the pellet formed through the decompos
 ## Comparasion of Vermicast Liquid Output and Vermicast Pellet Output
 
 
-``` r
+```r
 # Combine two data frames
 PhysChem_combined <- bind_rows(
   PhysChemP %>% mutate(Source = "Pellet"),
@@ -218,14 +257,14 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 
 
 
-# Biodivesity of Colonies
+# Charateristics of Colonies using Microscopy
 
 ## Analysis of Bacterial Colonies Using Microscopy
 
 Microscopy was used to identify differences between bacterial colonies. This method allowed us to verify whether colonies that shared a similar appearance were indeed the same type of bacteria by analyzing their shapes and conducting gram-staining tests.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Plate_Colony),fill = "#7bbea5") +
@@ -242,7 +281,7 @@ Figure 8. Number of colonies and bacteria types of each colonies for vermicast l
 Examining the different sizes and shapes of the colonies provides insights into the different forms of bacteria present after each treatment. This analysis increases our understanding of the biodiversity of bacteria in each colony.
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
@@ -260,7 +299,7 @@ Figure 9. Comparison of colony shapes among treatment groups 1-5 from vermicast 
 ## Analysis of Bacteria Sizes Using Microscopy
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um),fill = "#7bbea5") +
@@ -278,7 +317,7 @@ Figure 10. Comparison of colony sizes among treatment groups 1-5 from vermicast 
 ## Analysis of Releationship Between Bacteria Size and Shapes Between Treatment Groups
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um), fill = "#7bbea5") +
@@ -302,7 +341,7 @@ Figure 11 displays the different sizes and shapes of bacteria found in each trea
 ## Analysis of Gram Stained Colonies Across Treatments
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -321,7 +360,7 @@ Figure 12. Comparison of gram stain (0 = negative, 1 =positive) among treatment 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
 
 
-``` r
+```r
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
@@ -340,7 +379,7 @@ Figure 13. Comparison of gram stain and shapes among treatment groups 1-5 from v
 ## Analysis of Gram Stained and Colony Type
 
 
-``` r
+```r
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
   ggplot() +

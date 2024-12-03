@@ -70,6 +70,7 @@ library(tidyverse) #core packages from Tidyverse
 library(googledrive) #access to Google Drive
 library(googlesheets4) #access to Google Sheets
 library(lubridate) #tidyverse handling dates & times
+library(knitr) #make table
 ```
 
 ## InLine Citations of Software Packages Added Through the 'citr' Option Under 'Addins'.  
@@ -97,6 +98,12 @@ Below are the commands necessary to import the open source data from the vermica
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
+## Data Dictionary 
+```{r data_dictionary}
+DataDictionary <- read_sheet(googlesheet_url, sheet = "Data_Dictionary")
+kable(DataDictionary)
+```
+
 
 ## Vermicast Setup
 
