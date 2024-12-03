@@ -82,13 +82,11 @@ The GoogleSheet package interface was used, with guidance from Dr Campbell
 ## Connect to google account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
 ```{r connect_google}
-=======
 ## Source locally saved functions stored in a text file
-A text file of functions is a preliminary step towards a package, to re-use functions without re-pasting them.
-
 ## Set Project Variables  
 Try to set all user-defined variables near top of .Rmd, in one place, to avoid or limit editing of downstream code.
 Assigning project-specific values to generic variables helps with re-use of code.
+
 ```{r set variables}
 DataIn <- "XXXX"
 TargetFile <- "YYYY"
@@ -106,8 +104,6 @@ Repeatedly reading from Google Drive can provoke a throttle from Google.
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 ```{r connect_google}
 #Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
->>>>>>> e16c748667136f0b232aaef8cb1eb37cf8accd5d
-googlesheets4::gs4_deauth()
 
 #URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
@@ -124,12 +120,14 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 
 # Analysis the biodiversities of the different colonies within the treatments
 
-```{r methods set up, fig.cap = "Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. ", out.height="800pt", out.width="100%", echo = FALSE}
+```{r methods set up, fig.cap = "Worm Composting Method Setup.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
-## Experiment groups:
+Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. 
+
+Experiment groups:
 1. Worms and apples
 2. Worms, apples and dirt
 3. Worms, apples and dirt one week before
@@ -145,10 +143,12 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_U
 Figure 2. Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
 
 
-```{r plate examples, fig.cap = "Figure 3. Example of cultured vermicast liquid for experimental groups 1-5, respectively.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r analysis, fig.cap = "Pellet and Vermicast Output Culturing", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Examples.png"))
 ```
+
+Figure 3. Example of cultured vermicast liquid for experimental groups 1-5, respectively. 
 
 ## Biodivesity of the vermicast liquid output
 
@@ -233,7 +233,7 @@ This suggests that the microbial biodiversity from vermicast systems is not deri
 To further determine differences between bacteria colonies, microscopy was used. This helped to determine wheather colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
 =======
 To further determine differences between bacteria types, microscopy was used. This helped to determine whether colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
->>>>>>> e16c748667136f0b232aaef8cb1eb37cf8accd5d
+>>>>>>> d86523d48b37199decb591103164fe0ac1e8b921
 
 ## Analysis of the diffrent shapes under the microscopes
 
@@ -255,7 +255,7 @@ PhysChemL |>
 Figure 8.
 
 ## Analysis of the diffrent shapes under the microscopes, with removal of the outlier
->>>>>>> e16c748667136f0b232aaef8cb1eb37cf8accd5d
+>>>>>>> d86523d48b37199decb591103164fe0ac1e8b921
 
 ```{r Shape_explore}
 PhysChemL |>
@@ -280,7 +280,7 @@ Size was another factor observed using microscopy, as comparing the diffrent siz
 Figure 9. 
 
 ##Analysis of the diffrent shapes and sizes of bacteria present in each treatment
->>>>>>> e16c748667136f0b232aaef8cb1eb37cf8accd5d
+>>>>>>> d86523d48b37199decb591103164fe0ac1e8b921
 
 ```{r Size_Shape_explore2}
 PhysChemL |>
@@ -325,7 +325,7 @@ PhysChemL |>
 Figure 12.
 
 This graph shows how many colonies were taken from each plate, and how many bacteria types were in each colony (liquid)
->>>>>>> e16c748667136f0b232aaef8cb1eb37cf8accd5d
+>>>>>>> d86523d48b37199decb591103164fe0ac1e8b921
 
 ```{r Size_Gram_explore}
 PhysChemL |>
@@ -371,11 +371,12 @@ Figure 15. Identification of gram staining (0 = negative, 1 =positive) for the d
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonies have consistent gram types across treatments. If they don't, they were likely different colonies. 
 
 
-```{r gram stain examples, fig.cap = "Figure 16. Examples of gram stains from treatment groups 1-5. Includes two from treatment group 4, demonstrating contrasting results between colonies of the same treatment group.", out.height="800pt", out.width="100%", echo = FALSE}
+```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
 
+Figure 16. Examples of gram stains from treatment groups 1-5. Includes two from treatment group 4, demonstrating contrasting results between colonies of the same treatment group.
 
 This next section is looking at the biodiversity of the worm pellets. (PhysChem2) We overall have less information for this, but putting the graphs side by side during a presentation could be helpful
 
