@@ -103,18 +103,23 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ```
 
+Figure 1: Vermicast system made from 2L pop bottle which was put over top a petri dish to collect output from system. 
+
+Experiment groups:
+1. Worms and apples
+2. Worms, apples and dirt
+3. Worms, apples and dirt one week before
+4. Worms, apples and dirt one week after
+5. Dirt and apples
+
 
 ```{r methods overall, fig.cap = "Worm Composting Experiment Process.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
 ```
-Figure 1. Schematic of vermicast culturing process for worm pellet liquid output. colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
 
+Figure 2. Schematic of vermicast culturing process for worm pellet liquid output. Colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
 
-```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
-
-knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain.jpg"))
-```
 
 ## Biodivesity of the vermicast liquid output
 
@@ -128,7 +133,7 @@ PhysChemL |>
     title = "Colony Type Across Treatments in Compost Liquid"
   )
 ```
-Figure 4. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
+Figure 3. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
 
 Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary figures excluding it was created to better visualize the similarities and differences of bacterial colony biodiversity between treatments. 
 
@@ -145,9 +150,11 @@ PhysChemL |>
   )
 ```
 
+Figure 4. 
+
 ## Comparasion of Vermicast liquid output and Vermicast solids Output
 
-```{r ColonyType_explore}
+```{r ColonyType_explore2}
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
@@ -157,6 +164,8 @@ PhysChemP |>
     title = "Colony Types Across Treatments of Compost Pellet"
   )
 ```
+
+Figure 5.
 
 The solid vermicast is the main product of a functioning vermicast system. These were also tested for the biodiversity between colonies. It was found there was little biodiversity of bacterial colonies between treatments.
 
@@ -183,7 +192,7 @@ ggplot(PhysChem_combined) +
     fill = "Figure"
   )
 ```
-Figure 3. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
+Figure 6. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
 
 After the initial realization that there was less biodiversity in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
 This suggests that the microbial biodiversity from vermicast systems is not deriving from the gut of the worm.
@@ -207,6 +216,7 @@ PhysChemL |>
   )
 ```
 
+Figure 7.
 
 ## Analysis of the diffrent shapes under the microscopes, with removal of the outlier
 
@@ -222,6 +232,8 @@ PhysChemL |>
   )
 ```
 
+Figure 8. 
+
 ##Analysis of the diffrent shapes and sizes of bacteria present in each treatment
 
 ```{r Size_Shape_explore2}
@@ -235,7 +247,7 @@ PhysChemL |>
   )
 ```
 
-
+Figure 9.
 
 ```{r Size_explore}
 PhysChemL |>
@@ -248,6 +260,7 @@ PhysChemL |>
   )
 ```
 
+Figure 10.
 
 ```{r Plate_Colony_explore}
 PhysChemL |>
@@ -256,6 +269,9 @@ PhysChemL |>
   facet_grid(rows = vars(Treatment)) +
   theme_bw() 
 ```
+
+Figure 12.
+
 This graph shows how many colonies were taken from each plate, and how many bacteria types were in each colony (liquid)
 
 ```{r Size_Gram_explore}
@@ -268,6 +284,10 @@ PhysChemL |>
     title = "Colony Gram Across Treatments and Shapes in Compost Liquid "
   )
 ```
+
+Figure 13.
+
+
 ```{r Gram_explore}
 PhysChemL |>
   ggplot() +
@@ -279,6 +299,7 @@ PhysChemL |>
   )
 ```
 
+Figure 14.
 
 ```{r Gram_ColonyType_explore}
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
@@ -292,9 +313,17 @@ PhysChemL |>
     title = "Colony Gram Across Treatments and Colony Types of Compost Liquid"
   )
 ```
-Figure 6. Identification of gram staining (0 = negative, 1 =positive) for the different colony types for vermicast liquid of experimental groups 1-5. The plot was created using R software.
+Figure 15. Identification of gram staining (0 = negative, 1 =positive) for the different colony types for vermicast liquid of experimental groups 1-5. The plot was created using R software.
 
 This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonies have consistent gram types across treatments. If they don't, they were likely different colonies. 
+
+
+```{r analysis, fig.cap = "Gram Stain.", out.height="800pt", out.width="100%", echo = FALSE}
+
+knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain.jpg"))
+```
+
+Figure 16.  
 
 This next section is looking at the biodiversity of the worm pellets. (PhysChem2) We overall have less information for this, but putting the graphs side by side during a presentation could be helpful
 
@@ -310,6 +339,9 @@ PhysChemP |>
     title = "Colony Types Across Treatments of Compost Pellet"
   )
 ```
+
+Figure 17.
+
 
 # Conclusion
 

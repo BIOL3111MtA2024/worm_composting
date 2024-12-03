@@ -6,7 +6,7 @@ author:
 - Sylvia Le^1^*
 - Rajan Minocha-McKenney^1^*
 - Douglas Campbell^1^*
-- Carlie Barnhill^1^*
+- Liza Barney^1^*
 output:
   bookdown::html_document2:
     code_folding: show
@@ -53,7 +53,7 @@ The cited items must be in the .bib file saved in the .Rproj folder; in this cas
 [@bryanGooglesheets4AccessGoogle2021;@mcgowanGoogledriveInterfaceGoogle2020; @wickhamTidyverseEasilyInstall2017]
 
 ## Source locally saved functions stored in a text file
-A text file of functions is a preliminary step towards a package, to re-use functions without repasting them.
+A text file of functions is a preliminary step towards a package, to re-use functions without re-pasting them.
 
 ## Set Project Variables  
 Try to set all user-defined variables near top of .Rmd, in one place, to avoid or limit editing of downstream code.
@@ -66,19 +66,19 @@ TargetFile <- "YYYY"
 
 
 # Import Data from a GoogleSheet
-Data in a GoogleSheet is more generic than a project-specific .csv edited and saved locally and pushed to GitHub.
-The GoogleSheet package interface can be tricky.
-Repeatedly reading from GoogleDrive can provoke a throttle from Google.
+Data in a Google Sheet is more generic than a project-specific .csv edited and saved locally and pushed to GitHub.
+The Google Sheet package interface can be tricky.
+Repeatedly reading from Google Drive can provoke a throttle from Google.
 
 
 # Connect to google account
-The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
+The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on Google Drive.
 
 ``` r
-#Instead of sending a token, googlesheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
+#Instead of sending a token, Google Sheets4 will send an API key. This can be used to access public resources for which no Google sign-in is required. 
 googlesheets4::gs4_deauth()
 
-#URL of the GoogleSheet so that it is available to anyone
+#URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
 ```
 
@@ -92,11 +92,18 @@ PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 
 # Analysis the biodiversities of the different colonies within the treatments
 
-
 <div class="figure">
 <img src="../Data/RawData/Method_Set_Up.png" alt="Worm Composting Method Setup." width="100%" height="800pt" />
-<p class="caption">(\#fig:methods)Worm Composting Method Setup.</p>
+<p class="caption">(\#fig:methods set up)Worm Composting Method Setup.</p>
 </div>
+
+
+<div class="figure">
+<img src="../Data/RawData/Method_Overall_Set_Up.png" alt="Worm Composting Experiment Process." width="100%" height="800pt" />
+<p class="caption">(\#fig:methods overall)Worm Composting Experiment Process.</p>
+</div>
+Figure 1. Schematic of vermicast culturing process for worm pellet liquid output. colony analysis of colonies using microscopy and gram-staining. Created using BioRender.com.
+
 
 <div class="figure">
 <img src="../Data/RawData/Gram_Stain.jpg" alt="Gram Stain." width="100%" height="800pt" />
@@ -118,11 +125,11 @@ PhysChemL |>
 ```
 
 ![](Figs/colony_explore-1.png)<!-- -->
+Figure 4. Identification of colony types for vermicast liquid of experimental groups 1-4 from microscopy observations. The plot was created using R software.
 
+Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary figures excluding it was created to better visualize the similarities and differences of bacterial colony biodiversity between treatments. 
 
-Treatment 5 was an outlier, as it had a fungus covering most of the colonies, making them inaccessible. A secondary fgures excluding it was created to better visualize the similarities and diffrences of bacterial colony biodivesrsity between treatments. 
-
-## biodivesity of the vermicast liquid output, removing the outlier
+## Biodivesity of the vermicast liquid output, removing the outlier
 
 ``` r
 PhysChemL |>
@@ -152,7 +159,7 @@ PhysChemP |>
   )
 ```
 
-![](Figs/ColonyType_explore}-1.png)<!-- -->
+![](Figs/ColonyType_explore2-1.png)<!-- -->
 
 The solid vermicast is the main product of a functioning vermicast system. These were also tested for the biodiversity between colonies. It was found there was little biodiversity of bacterial colonies between treatments.
 
@@ -182,14 +189,15 @@ ggplot(PhysChem_combined) +
 ```
 
 ![](Figs/liquid_pellet_comparasion-1.png)<!-- -->
+Figure 3. Identification of colony types for pellet and vermicast liquid of experimental groups 1-5 from microscopy observations. The plot was created using R software.
 
-After the initial realization that there was less biodiversuty in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
-This suggests that the microbial biodiversity from vermicast systems is nt deriving from the gut of the worm.
+After the initial realization that there was less biodiversity in bacterial colonies between treatments than the liquid, it was determined to be beneficial to compare the results between treatments. This graphs supports that there is more biodiversity in colonies from the liquid of each treatment than from the solid vermicast. 
+This suggests that the microbial biodiversity from vermicast systems is not deriving from the gut of the worm.
 
 
 # Analysis of bacterial colonies using microscopy
 
-To futher determine diffrences between bacteria types, microscopy was used. This helped t determine wether colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
+To further determine differences between bacteria types, microscopy was used. This helped to determine whether colonies that had similar appearance were actually the same bacteria through analysis of shape and gram-staining.
 
 ## Analysis of bacterial shape
 
@@ -209,7 +217,6 @@ PhysChemL |>
 
 
 ## Analysis of the diffrent shapes under the microscopes, with removal of the outlier
-
 
 
 ``` r
@@ -298,6 +305,8 @@ PhysChemL |>
 
 ![](Figs/Gram_explore-1.png)<!-- -->
 
+
+
 ``` r
 ## scale_x_continuous(breaks = c(a,b)) : in which set x-axis to display specific numbers value
 PhysChemL |>
@@ -312,9 +321,11 @@ PhysChemL |>
 ```
 
 ![](Figs/Gram_ColonyType_explore-1.png)<!-- -->
-This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonoes have consistent gram types across treatments. If they don't, they were likely different colonies. 
+Figure 6. Identification of gram staining (0 = negative, 1 =positive) for the different colony types for vermicast liquid of experimental groups 1-5. The plot was created using R software.
 
-This next section is loking at the biodiversity of the worm pellets. (PhysChem2) We overall have lestt infprmation for shis, but puting the graphs side by side during a presentation could be helpful
+This graph shows us the different gram stains across colonies in the treatment types, which let us see if the colonies have consistent gram types across treatments. If they don't, they were likely different colonies. 
+
+This next section is looking at the biodiversity of the worm pellets. (PhysChem2) We overall have less information for this, but putting the graphs side by side during a presentation could be helpful
 
 Colony type per treatment is really the only thing we can do here, see data dictionary for description
 
@@ -332,5 +343,6 @@ PhysChemP |>
 
 ![](Figs/ColonyType_explore-1.png)<!-- -->
 
+# Conclusion
 
 # Bibliography
