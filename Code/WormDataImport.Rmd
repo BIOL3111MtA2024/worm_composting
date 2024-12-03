@@ -81,17 +81,9 @@ The GoogleSheet package interface was used, with guidance from Dr Campbell
 
 ## Connect to google account
 The Google account that contained the data-sheets was de-authorized. This allowed universal access to the raw data sheet.Then retrieve data sheet from where it's stored on google drive.
-```{r connect_google}
-## Source locally saved functions stored in a text file
-## Set Project Variables  
-Try to set all user-defined variables near top of .Rmd, in one place, to avoid or limit editing of downstream code.
-Assigning project-specific values to generic variables helps with re-use of code.
 
-```{r set variables}
-DataIn <- "XXXX"
-TargetFile <- "YYYY"
-  
-```
+
+
 
 
 # Import Data from a GoogleSheet
