@@ -91,11 +91,8 @@ gs4_deauth()
 #URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
 ```
-1. Worms and apples
-2. Worms, apples and dirt
-3. Worms, apples and dirt one week before
-4. Worms, apples and dirt one week after
-5. Dirt and apples
+
+
 ## Accessing Data From Google Sheets
 Below are the commands necessary to import the open source data from the vermicast project into R studio.
 ```{r accessing_sheets}
@@ -130,6 +127,8 @@ kable(DataDictionary)
 
 ## Vermicast Setup
 
+We prepared a custom setup using 2L plastic bottles with the tops removed and drilled holes at the bottom. Each bottle was placed at a fixed height above the surface, ensuring consistent spacing. Beneath each bottle, a petri dish was positioned to collect any juice or pellet secreted by the worms during the experiment. To provide a base, a layer of cardboard was placed at the bottom of each bottle. A fine mesh was secured over the top opening to ensure containment while allowing ventilation. This setup ensured efficient collection and minimized escape of worms.
+
 ```{r vermicast_setup, fig1.cap = "Vermicast system made from 2L pop bottle which was suspened over a petri dish to collect vermicast output.", out.height="800pt", out.width="100%", echo = FALSE}
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
@@ -148,6 +147,8 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
 ```
+
+
 
 ## Examples of Innoculated Petri Dishes From Vermicast Outputs
 
@@ -257,17 +258,16 @@ Examining the different sizes and shapes of the colonies provides insights into 
 
 ```{r shape_explore}
 PhysChemL |>
-  #filter(!is.na(Gram))|> 
   ggplot() +
   geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
-  facet_grid(cols = vars(Gram), rows = vars(Treat_label)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw()+
   labs(
     title = "Bacteria Shapes of Vermicast Liquid From Treatment Groups 1-5"
   )
 ```
 
-Figure 9. Comparison of colony shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 8. Comparison of colony shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 ## Analysis of Bacteria Sizes Using Microscopy
 
@@ -282,7 +282,7 @@ PhysChemL |>
   )
 ```
 
-Figure 10. Comparison of colony sizes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 9. Comparison of colony sizes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 ## Analysis of Releationship Between Bacteria Size and Shapes Between Treatment Groups
 
@@ -298,9 +298,9 @@ PhysChemL |>
   )
 ```
 
-Figure 11. Comparison of different size (um) and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 10. Comparison of different size (um) and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
-Figure 11 displays the different sizes and shapes of bacteria found in each treatment group. It indicates that while some colonies share similar shapes, they differ in size. This suggests that although certain colonies may look alike, they actually consist of different types of bacteria.
+Figure 10 displays the different sizes and shapes of bacteria found in each treatment group. It indicates that while some colonies share similar shapes, they differ in size. This suggests that although certain colonies may look alike, they actually consist of different types of bacteria.
 
 
 
@@ -321,23 +321,25 @@ PhysChemL |>
   )
 ```
 
-Figure 12. Comparison of gram stain (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 11. Comparison of gram stain (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
 
 ```{r shape_gram_explore}
 PhysChemL |>
+  #filter(!is.na(Gram))|> 
   ggplot() +
-  geom_histogram(aes(Gram),fill = "#7bbea5") +
-  facet_grid(rows = vars(Treat_label), cols = vars(Shape)) +
+  geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
+  facet_grid(cols = vars(Gram), rows = vars(Treat_label)) +
   theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(
     title = "Colony Gram Across Treatments and Shapes in Compost Liquid"
   )
 ```
 
-Figure 13. Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 12. Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
@@ -351,13 +353,13 @@ PhysChemL |>
   scale_x_continuous(breaks = c(0, 1)) +
   theme_bw()+
   labs(
-    title = "Colony Gram Across Treatments and Colony Types of Compost Liquid"
+    title = "Colony Gram Across Treatments and Colony Types of Compost Liquid from treatment group 1-5"
   )
 ```
 
-Figure 14. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
+Figure 13. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5 in order from top to bottom. Results were observed using microscopy.
 
-Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies. According to the figure, colonies 9,11,13,15 do not maintain consistent gram types across treatments as they have both negative and positive observation.
+Figure 13 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies. According to the figure, colonies 9,11,13,15 do not maintain consistent gram types across treatments as they have both negative and positive observation.
 
 Although gram type alone cannot distinguish specific bacteria, it can show some trends within treatment groups. Treatment groups 1 and 2 show a higher count of gram-positive colonies, while other groups, like 4, exhibit fewer and sparse gram-negative colonies. Treatment group 3 shows an equal number of gram-negative and positive colonies.
 
@@ -368,7 +370,7 @@ Although gram type alone cannot distinguish specific bacteria, it can show some 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
 
-Figure 15 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4, demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
+Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4 (worm, apples and dirt early), demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
 
 # **CONCLUSIONS**
