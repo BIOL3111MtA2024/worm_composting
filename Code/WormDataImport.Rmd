@@ -91,13 +91,36 @@ gs4_deauth()
 #URL of the Google Sheet so that it is available to anyone
 googlesheet_url <- "https://docs.google.com/spreadsheets/d/1VpTn7voQ0889RoEloQtZFyVJyPMIRbACklrrquOiC7c/edit?usp=sharing"
 ```
-
+1. Worms and apples
+2. Worms, apples and dirt
+3. Worms, apples and dirt one week before
+4. Worms, apples and dirt one week after
+5. Dirt and apples
 ## Accessing Data From Google Sheets
 Below are the commands necessary to import the open source data from the vermicast project into R studio.
 ```{r accessing_sheets}
 PhysChemL <- read_sheet(googlesheet_url, sheet = "PhysChemL")
 PhysChemP <- read_sheet(googlesheet_url, sheet = "PhysChemP")
 ```
+
+```{r treatment_labels}
+PhysChemL <- PhysChemL |>
+  mutate(Treat_label = case_when(Treatment == 1 ~ "Worm_apples",
+                                 Treatment == 2 ~ "Worm_apples_dirt",
+                                 Treatment == 3 ~ "Worm_apples_dirt_early",
+                                 Treatment == 4 ~ "Worm_apples_dirt_late",
+                                 Treatment == 5 ~ "Apples_dirt"))
+  
+  PhysChemP <- PhysChemP |>
+  mutate(Treat_label = case_when(Treatment == 1 ~ "Worm_apples",
+                                 Treatment == 2 ~ "Worm_apples_dirt",
+                                 Treatment == 3 ~ "Worm_apples_dirt_early",
+                                 Treatment == 4 ~ "Worm_apples_dirt_late",
+                                 Treatment == 5 ~ "Apples_dirt"))
+  
+```
+
+
 ## Data Dictionary 
 ```{r data_dictionary}
 DataDictionary <- read_sheet(googlesheet_url, sheet = "Data_Dictionary")
@@ -146,7 +169,7 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Plate_Colony_Example
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
     title = "Colony Types From Vericast Liquid Across Treatment Groups 1-5"
@@ -164,7 +187,7 @@ PhysChemL |>
   filter(Treatment != 5) |>
   ggplot() +
   geom_histogram(aes(Colony_Type), fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
     title = "Colony Types From Vericast Liquid Across Treatment Groups 1-4"
@@ -179,7 +202,7 @@ Figure 5. Identification of colony types from vermicast liquid outputs of treatm
 PhysChemP |>
   ggplot() +
   geom_histogram(aes(Colony_Type),fill = "#ef926e" ) +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
     title = "Colony Types From Vericast Pellet Across Treatment Groups 1-4"
@@ -205,7 +228,7 @@ PhysChem_combined <- bind_rows(
   ## binwidth = ____ : changing size of the columns
 ggplot(PhysChem_combined) +
   geom_histogram(aes(x = Colony_Type, fill = Source), position = "dodge", binwidth = 1) +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   scale_fill_brewer(palette = "Set2") +
   labs(
@@ -224,19 +247,9 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 
 # Charateristics of Colonies using Microscopy
 
-## Analysis of Bacterial Colonies Using Microscopy
+## Analysis of Bacterial Colonies Using Microscopy 
 
 Microscopy was used to identify differences between bacterial colonies. This method allowed us to verify whether colonies that shared a similar appearance were indeed the same type of bacteria by analyzing their shapes and conducting gram-staining tests.
-
-```{r plate_colony_explore}
-PhysChemL |>
-  ggplot() +
-  geom_histogram(aes(Plate_Colony),fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
-  theme_bw() 
-```
-
-Figure 8. Number of colonies and bacteria types of each colonies for vermicast liquid output across treatment groups 1-5. Results were observed using microscopy.
 
 ## Analysis of Colony Shapes Using Microscopy
 
@@ -244,9 +257,10 @@ Examining the different sizes and shapes of the colonies provides insights into 
 
 ```{r shape_explore}
 PhysChemL |>
+  #filter(!is.na(Gram))|> 
   ggplot() +
   geom_histogram(aes(Shape), stat="count", fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(cols = vars(Gram), rows = vars(Treat_label)) +
   theme_bw()+
   labs(
     title = "Bacteria Shapes of Vermicast Liquid From Treatment Groups 1-5"
@@ -261,7 +275,7 @@ Figure 9. Comparison of colony shapes among treatment groups 1-5 from vermicast 
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um),fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
     title = "Colony Size Across Treatments in Compost Liquid"
@@ -277,7 +291,7 @@ Figure 10. Comparison of colony sizes among treatment groups 1-5 from vermicast 
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Size_um), fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
+  facet_grid(rows = vars(Treat_label), cols = vars(Shape)) +
   theme_bw() +
   labs(
     title = "Comparison of Bacteria Size & Shape From Treatments 1-5 of Vermicast Liquid"
@@ -297,12 +311,13 @@ To further analyze and check whether the colonies are the same across treatment 
 
 ```{r gram_explore}
 PhysChemL |>
+  filter(!is.na(Gram))|>
   ggplot() +
-  geom_histogram(aes(Gram),fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment)) +
+  geom_bar(aes(as.factor(Gram)),fill = "#7bbea5") +
+  facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
-    title = "Colony Gram Across Treatments of Compost Pallet "
+    title = "Colony Gram Across Treatments of Vermicast Pellet"
   )
 ```
 
@@ -315,7 +330,7 @@ Figure 12. Comparison of gram stain (0 = negative, 1 =positive) among treatment 
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5") +
-  facet_grid(rows = vars(Treatment), cols = vars(Shape)) +
+  facet_grid(rows = vars(Treat_label), cols = vars(Shape)) +
   theme_bw() +
   labs(
     title = "Colony Gram Across Treatments and Shapes in Compost Liquid"
@@ -332,7 +347,7 @@ Figure 13. Comparison of gram stain and shapes among treatment groups 1-5 from v
 PhysChemL |>
   ggplot() +
   geom_histogram(aes(Gram),fill = "#7bbea5", binwidth = 0.2) +
-  facet_grid(rows = vars(Treatment), cols = vars(Colony_Type)) +
+  facet_grid(rows = vars(Treat_label), cols = vars(Colony_Type)) +
   scale_x_continuous(breaks = c(0, 1)) +
   theme_bw()+
   labs(
