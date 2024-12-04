@@ -1,6 +1,6 @@
 ---
 title: "Introduction of microbes at different intervals in vermicast systems"
-date: "2024-12-03"
+date: "2024-12-04"
 author:
 - Georgia Pardy^1^*
 - Sylvia Le^1^*
@@ -15,6 +15,7 @@ output:
     toc_float: TRUE
     toc_depth: 6
     fig_caption: yes
+documentclass: book
 editor_options: 
   markdown: 
     wrap: 72

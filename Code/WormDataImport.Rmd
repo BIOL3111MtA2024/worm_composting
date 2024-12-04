@@ -291,6 +291,7 @@ Figure 11 displays the different sizes and shapes of bacteria found in each trea
 
 
 # Gram Staining
+To further analyze and check whether the colonies are the same across treatment or not, we also do gram test.
 
 ## Analysis of Gram Stained Colonies Across Treatments
 
@@ -341,7 +342,9 @@ PhysChemL |>
 
 Figure 14. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5. Results were observed using microscopy.
 
-Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies.
+Figure 14 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies. According to the figure, colonies 9,11,13,15 do not maintain consistent gram types across treatments as they have both negative and positive observation.
+
+Although gram type alone cannot distinguish specific bacteria, it can show some trends within treatment groups. Treatment groups 1 and 2 show a higher count of gram-positive colonies, while other groups, like 4, exhibit fewer and sparse gram-negative colonies. Treatment group 3 shows an equal number of gram-negative and positive colonies.
 
 ## Example of Gram Stains from Treatment Groups 1-5
 
