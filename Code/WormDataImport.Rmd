@@ -317,12 +317,11 @@ PhysChemL |>
   facet_grid(rows = vars(Treat_label)) +
   theme_bw() +
   labs(
-    title = "Colony Gram Across Treatments of Vermicast Pellet"
+    title = "Colony Gram Across Treatments of Vermicast Pellet from treatment group 1-5"
   )
 ```
 
-Figure 11. Comparison of gram stain (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
-
+Figure 11. Comparison of gram staining (0 = negative, 1 =positive) among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 ## Analysis of Gram Stained Colonies and Bacteria Shape
 
@@ -335,11 +334,11 @@ PhysChemL |>
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(
-    title = "Colony Gram Across Treatments and Shapes in Compost Liquid"
+    title = "Colony Gram Across Treatments and Shapes in Vermicast Liquid from treatment group 1-5"
   )
 ```
 
-Figure 12. Comparison of gram stain and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
+Figure 12. Comparison of gram staining (0 = negative, 1 =positive, NA = undefined) and shapes among treatment groups 1-5 from vermicast liquid output. Results were observed using microscopy.
 
 
 ## Analysis of Gram Stained and Colony Type
@@ -353,15 +352,15 @@ PhysChemL |>
   scale_x_continuous(breaks = c(0, 1)) +
   theme_bw()+
   labs(
-    title = "Colony Gram Across Treatments and Colony Types of Compost Liquid from treatment group 1-5"
+    title = "Colony Gram Across Treatments and Colony Types of Vermicast Liquid from treatment group 1-5"
   )
 ```
 
-Figure 13. Identification of gram staining (0 = negative, 1 =positive) for the different colony types from vermicast liquid output for treatment groups 1-5 in order from top to bottom. Results were observed using microscopy.
+Figure 13. Identification of gram staining (0 = negative, 1 = positive) for the different colony types from vermicast liquid output for treatment groups 1-5 arranged sequentially from top to bottom. Results were observed using microscopy.
 
 Figure 13 shows the gram positive or negative stains observed in the colonies of treatment groups 1-5. This allows us to determine if the colonies maintain consistent gram types across treatments. If not, they are likely to represent different colonies. According to the figure, colonies 9,11,13,15 do not maintain consistent gram types across treatments as they have both negative and positive observation.
 
-Although gram type alone cannot distinguish specific bacteria, it can show some trends within treatment groups. Treatment groups 1 and 2 show a higher count of gram-positive colonies, while other groups, like 4, exhibit fewer and sparse gram-negative colonies. Treatment group 3 shows an equal number of gram-negative and positive colonies.
+Although gram type alone cannot distinguish specific bacteria, it can show some trends within treatment groups. Treatment groups 1 and 2 show a higher count of gram-positive colonies, while other groups, like 4, exhibit fewer and sparse gram-negative colonies. Treatment group 3 shows an equal number of gram-negative and positive colonies. 
 
 ## Example of Gram Stains from Treatment Groups 1-5
 
@@ -370,7 +369,9 @@ Although gram type alone cannot distinguish specific bacteria, it can show some 
 knitr::include_graphics(file.path("..", "Data", "RawData", "Gram_Stain_Groups.png"))
 ```
 
-Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4 (worm, apples and dirt early), demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
+Figure 14. Gram-stained images of samples from treatment groups 1–5, captured at 40x magnification. Treatment group 1 consisted of worms and apples; group 2 included worms, apples, and dirt; group 3 contained worms, apples, and dirt introduced one week earlier; group 4 involved worms, apples, and dirt introduced one week later; and group 5 comprised only dirt and apples.
+
+Figure 14 shows examples of gram stains from treatment groups 1-5. This includes two examples from treatment group 4 (worms, apples, and dirt introduced one week later), demonstrating contrasting results between colonies of the same treatment group. This indicates that there were gram positive and negative bacteria present in the different colony types and treatment groups.
 
 
 # **CONCLUSIONS**
