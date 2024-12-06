@@ -248,10 +248,6 @@ Following the initial observation that bacterial colonies exhibited reduced biod
 
 # Charateristics of Colonies using Microscopy
 
-## Analysis of Bacterial Colonies Using Microscopy 
-
-Microscopy was used to identify differences between bacterial colonies. This method allowed us to verify whether colonies that shared a similar appearance were indeed the same type of bacteria by analyzing their shapes and conducting gram-staining tests.
-
 ## Analysis of Colony Shapes Using Microscopy
 
 Examining the different sizes and shapes of the colonies provides insights into the different forms of bacteria present after each treatment. This analysis increases our understanding of the biodiversity of bacteria in each colony.
