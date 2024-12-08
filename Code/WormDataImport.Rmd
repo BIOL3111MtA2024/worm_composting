@@ -127,7 +127,7 @@ kable(DataDictionary)
 
 ## Vermicast Setup
 
-We prepared a custom setup using 2L plastic bottles with the tops removed and drilled holes at the bottom. Each bottle was placed at a fixed height above the surface, ensuring consistent spacing. Beneath each bottle, a petri dish was positioned to collect any juice or pellet secreted by the worms during the experiment. To provide a base, a layer of cardboard was placed at the bottom of each bottle. A fine mesh was secured over the top opening to ensure containment while allowing ventilation. This setup ensured efficient collection and minimized escape of worms.
+Five vermicast systems will be created, each using two-liters bottles with the tops removed and drilled holes at the bottom. Each bottle was placed at a fixed height above the surface, ensuring consistent spacing. Beneath each bottle, a petri dish was positioned to collect any juice or pellet secreted by the worms during the experiment. To provide a base, a layer of cardboard was placed at the bottom of each bottle.  *Eisenia fetida* worms and apple would be udsed in this set up as 2:1 worm-to-apple ratio, ensuring not to overfill them to allow room for re-feeding and product production (Bordessa, 2022; Shaw, 2023). A fine mesh was secured over the top opening to ensure containment while allowing ventilation. This setup ensured efficient collection and minimized escape of worms.
 
 ```{r vermicast_setup, fig1.cap = "Vermicast system made from 2L pop bottle which was suspened over a petri dish to collect vermicast output.", out.height="800pt", out.width="100%", echo = FALSE}
 
@@ -137,8 +137,8 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 ## Treatment Groups
 1. Worms and apples
 2. Worms, apples and dirt
-3. Worms, apples and dirt one week before
-4. Worms, apples and dirt one week after
+3. Worms, apples and dirt one week before starting time
+4. Worms, apples and dirt one week after starting time
 5. Dirt and apples
 
 ## Vermicast Pellet and Liquid Output Analyzation and Characterization 
@@ -148,7 +148,7 @@ knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Set_Up.png"))
 knitr::include_graphics(file.path("..", "Data", "RawData", "Method_Overall_Set_Up.png"))
 ```
 
-
+During the thirty-day trial period, the systems ran continuously, and the vermicast product will be tested for microbial biodiversity each week. Vermicast liquid was grown directly from the vermicast petri dish to tryptic soy agar (TSA) plates. Meanwhile, vermicast pellets were first grown in TSA broth and then transferred to grow on TSA plates. analyzed using microscopy and gram staining for biodiversity. 
 
 ## Examples of Innoculated Petri Dishes From Vermicast Outputs
 
